@@ -2,7 +2,7 @@
 2d phase congruency tensor-based multiscale vessel enhancement filtering<br/>
 
 required packages:
-- [vesselness2d](../vesselness2d)
+- [vesselness2d](../../../vesselness2d)
 
 | INPUT  | OUTPUT |
 | ------------- | ------------- |

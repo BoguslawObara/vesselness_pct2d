@@ -3,7 +3,7 @@
 
 | INPUT  | OUTPUT |
 | ------------- | ------------- |
-| <img src="https://github.com/BoguslawObara/vesselness2d/blob/master/im/fungal_network.png" width="250">  | <img src="https://github.com/BoguslawObara/vesselness2d/blob/master/im/fungal_network_v.png" width="250"> |
+| <img src="https://github.com/BoguslawObara/vesselness_pct2d/blob/master/im/fungal_network.png" width="250">  | <img src="https://github.com/BoguslawObara/vesselness_pct2d/blob/master/im/fungal_network_v.png" width="250"> |
 
 If you find this code useful in your research and development, please consider citing:
 

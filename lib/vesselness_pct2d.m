@@ -1,10 +1,10 @@
 function [imv,vx,vy,l1,l2] = vesselness_pct2d(varargin)
-%%  vesselness2d - multiscale vessel enhancement filtering
+%%  vesselness_pct2d - 2d phase congruency-based multiscale vessel enhancement filtering
 %   
 %   REFERENCE:
-%       A.F. Frangi, et al. 
-%       Multiscale Vessel Enhancement Filtering
-%       Lecture Notes in Computer Science, 1496, 130-137, 1998
+%       B. Obara, M. Fricker, D. Gavaghan, and V. Grau, 
+%       Contrast-independent curvilinear structure detection in biomedical 
+%       images, IEEE Transactions on Image Processing, 21, 5, 2572-2581, 2012
 %
 %   INPUT:
 %       im      - 2D gray image
@@ -28,18 +28,18 @@ beta = varargin{length(varargin)-1};
 c = varargin{length(varargin)};
 
 %% phase
-[M,m,or,featType,PC,EO,t,pcSum] = phasecong3(varargin{:});
+[M,m,or,featType,PC,EO,t,pcSum] = phasecong3(varargin{1:end-2});
 
 %% oriented quadrature filters
 no = length(PC);
-a = ((1:no)-1)*pi/no; % angles
+o = ((1:no)-1)*pi/no; % angles
 imqf = zeros(size(im,1),size(im,2),no); 
-for o=1:no
-    imqf(:,:,o) = PC{o};
+for oi=1:no
+    imqf(:,:,oi) = PC{oi};
 end
 
 %% tensor
-t = tensor2d(imqf,a);
+t = tensor2d(imqf,o);
 
 %% eigen values and vectors
 [l1,l2,v1,v2,v3,v4] = eigen2d_m(t(:,:,1),t(:,:,2),t(:,:,3),t(:,:,4));
